@@ -1,0 +1,89 @@
+@font-face {
+  font-family: Gotham;
+  src: local("Gotham Bold");
+  src: url("/assets/fonts/Gotham-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: Gotham;
+  src: local("Gotham Black");
+  src: url("/assets/fonts/Gotham-Black.otf") format("opentype");
+  font-weight: bolder;
+  font-style: normal; }
+
+@font-face {
+  font-family: Gotham;
+  src: local("Gotham Medium");
+  src: url("/assets/fonts/GothamMedium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+body {
+  background: #fffdf0;
+  font-family: Gotham;
+  text-transform: uppercase; }
+
+.header-info {
+  background: #323132;
+  height: 99px; }
+
+.header-menu {
+  background: #232223;
+  height: 99px;
+  font-family: Gotham;
+  font-size: 0.7rem;
+  color: #fffdf0; }
+
+.geru-breadcrumb {
+  background: #eae8dd;
+  height: 49px;
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 16px; }
+
+.geru-breadcrumb-item {
+  float: left;
+  line-height: 20px; }
+
+.geru-breadcrumb-text {
+  color: #b2b1a9;
+  float: left; }
+
+.geru-breadcrumb-text-selected {
+  color: #323132;
+  float: left; }
+
+.geru-breadcrumb-number {
+  color: #b2b1a9;
+  border: 2px solid #b2b1a9;
+  height: 20px;
+  width: 20px;
+  border-radius: 20px;
+  margin: 0 5px 0 30px;
+  float: left;
+  line-height: 17px; }
+
+.geru-breadcrumb-number-selected {
+  color: #00b7cd;
+  background: #323132;
+  height: 20px;
+  width: 20px;
+  border-radius: 20px;
+  margin: 0 5px 0 30px;
+  float: left; }
+
+.form-title {
+  font-family: Gotham;
+  font-weight: bolder; }
+
+.circle {
+  color: #00b7cd;
+  line-height: 1.8rem; }
+
+.geru-content {
+  margin-top: 90px; }
+
+h3 {
+  font-weight: bold; }
