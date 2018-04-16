@@ -3,35 +3,41 @@
   <div class="row">
     <div class="container text-center geru-content">
       <h3 class="form-title">DADOS PESSOAIS</h3>
-      <form>
+      <form [formGroup]="userForm" novalidate>
         <div class="form-group row">
           <div class="col-auto">
             <label for="geru-rg">NÚMERO DO RG</label>
-            <input type="text" class="form-control" id="geru-rg" aria-describedby="rgHelp" placeholder="RG">
+            <input type="text" formControlName="rg" class="form-control" id="geru-rg" aria-describedby="rgHelp" placeholder="RG">
           </div>
           <div class="col-auto">
             <label for="geru-emissao">DATA DE EMISSÃO</label>
-            <input type="text" class="form-control" id="geru-emissao" aria-describedby="emissaoHelp" placeholder="EMISSÃO">
+            <input type="text" formControlName="data_emissao" class="form-control" id="geru-emissao" aria-describedby="emissaoHelp" placeholder="EMISSÃO">
           </div>
           <div class="col-auto">
             <label for="geru-expedidor">ORGÃO EXPEDIDOR</label>
-            <select class="form-control">
+            <select formControlName="orgao_emissor" class="form-control">
               <option *ngFor="let orgao of emissor">{{orgao.label | uppercase}}</option>
             </select>
           </div>
         </div>
         <div class="form-group row">SEXO
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="sexo-masculino" value="option1">
+            <input formControlName="sexo" class="form-check-input" type="radio" id="sexo-masculino" value="masculino">
             <label class="form-check-label" for="sexo-masculino">Masculino</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="sexo-feminino" value="option2">
+            <input formControlName="sexo" class="form-check-input" type="radio" id="sexo-feminino" value="feminino">
             <label class="form-check-label" for="sexo-feminino">Feminino</label>
           </div>
         </div>
-        <button>CONTINUAR</button>
+        <button (click)="sendForm(userForm.value)" [disabled]="!userForm.valid">CONTINUAR</button>
       </form>
     </div>
+  </div>
+  <div>
+    <div>Listagem</div>
+    <ul>
+      <li *ngFor="let user of users">Nome: {{user.name}} - RG: {{user.rg}} <a href="#" (click)="editarUser(user.id)">Editar</a> <a href="#" (click)="excluirUser(user.id)">Excluir</a></li>
+    </ul>
   </div>
 </section>
