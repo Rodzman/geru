@@ -1,0 +1,10 @@
+<section>
+  <div>
+    <div>Listagem</div>
+    <ul>
+      <li *ngFor="let user of users">Nome: {{user.name}} - RG: {{user.rg}} <a [routerLink]="['/users', user.id]" (click)="editarUser(user.id)">Editar</a> <a routerLink="/users" (click)="excluirUser(user.id)">Excluir</a></li>
+    </ul>
+  </div>
+  <a routerLink="/">Voltar</a>
+</section>
+

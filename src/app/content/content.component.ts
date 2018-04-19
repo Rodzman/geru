@@ -11,6 +11,7 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/fo
 export class ContentComponent implements OnInit {
 
   emissor = []
+  gender:string
   users: User
   userForm: FormGroup
   datePattern = /(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)/
@@ -21,7 +22,14 @@ export class ContentComponent implements OnInit {
 
   ngOnInit() {
     this.gerarEmissor()
-    this.gerarLista()
+    this.generateForm()
+  }
+
+  gerarEmissor(){
+    this.geruService.emissor().subscribe(emissor => this.emissor = emissor.orgao_emissor)
+  }
+
+  generateForm(){
     this.userForm = this.formBuilder.group({
       name: this.formBuilder.control('Rodrigo Souza'),
       rg: this.formBuilder.control('', [Validators.required, Validators.minLength(5)]),
@@ -31,32 +39,20 @@ export class ContentComponent implements OnInit {
     })
   }
 
-  gerarEmissor(){
-    this.geruService.emissor().subscribe(emissor => this.emissor = emissor.orgao_emissor)
-  }
-
-  gerarLista(){
-    this.geruService.listUsers().subscribe(user => this.users = user)
-  }
-
   sendForm(user: User){
     this.geruService.addUser(user)
       .subscribe(res => {
         alert("Usuário com o id='"+ res + "' foi adicionado!")
+        this.generateForm()
       })
   }
 
-  editarUser(id: number){
-    alert(id)
+  setGender(gender:string){
+    this.gender = gender
   }
+  
 
-  excluirUser(id: number){
-    this.geruService.deleteUser(id)
-      .subscribe(res => {
-        alert("Usuário "+ res.id + " excluído!")
-        this.gerarLista()
-      })
-  }
+  
 
 
 }

@@ -4,40 +4,46 @@
     <div class="container text-center geru-content">
       <h3 class="form-title">DADOS PESSOAIS</h3>
       <form [formGroup]="userForm" novalidate>
-        <div class="form-group row">
-          <div class="col-auto">
-            <label for="geru-rg">NÚMERO DO RG</label>
-            <input type="text" formControlName="rg" class="form-control" id="geru-rg" aria-describedby="rgHelp" placeholder="RG">
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="geru-rg" class="geru-label">NÚMERO DO RG</label>
+            <input type="text" formControlName="rg" class="form-control geru-input" id="geru-rg" aria-describedby="rgHelp" placeholder="RG">
           </div>
-          <div class="col-auto">
-            <label for="geru-emissao">DATA DE EMISSÃO</label>
-            <input type="text" formControlName="data_emissao" class="form-control" id="geru-emissao" aria-describedby="emissaoHelp" placeholder="EMISSÃO">
+          <div class="form-group col-md-4">
+            <label for="geru-emissao" class="geru-label">DATA DE EMISSÃO</label>
+            <input type="text" formControlName="data_emissao" class="form-control geru-input" id="geru-emissao" aria-describedby="emissaoHelp" placeholder="EMISSÃO">
+            <div class="invalid-feedback">Example invalid feedback text</div>
           </div>
-          <div class="col-auto">
-            <label for="geru-expedidor">ORGÃO EXPEDIDOR</label>
-            <select formControlName="orgao_emissor" class="form-control">
+          <div class="form-group col-md-4">
+            <label for="geru-expedidor" class="geru-label">ORGÃO EXPEDIDOR</label>
+            <select formControlName="orgao_emissor" class="form-control geru-input" style="height: 42px;">
               <option *ngFor="let orgao of emissor">{{orgao.label | uppercase}}</option>
             </select>
           </div>
         </div>
-        <div class="form-group row">SEXO
-          <div class="form-check form-check-inline">
-            <input formControlName="sexo" class="form-check-input" type="radio" id="sexo-masculino" value="masculino">
-            <label class="form-check-label" for="sexo-masculino">Masculino</label>
+        <div class="form-row">
+            <!--Checkbox butons-->
+            <div class="form-group btn-group btn-group-toggle" style="margin:auto;">
+                <div class="btn-label">SEXO</div>
+              <label class="btn btn-gender" [ngClass]="{'active': gender === 'masculino'}">
+                <input formControlName="sexo" class="form-control" type="radio" id="sexo-masculino" value="masculino" (click)="setGender('masculino')"> Masculino
+              </label>
+              <label class="btn btn-gender" [ngClass]="{'active': gender === 'feminino'}">
+                <input formControlName="sexo" class="form-control" type="radio" id="sexo-feminino" value="feminino" (click)="setGender('feminino')"> Feminino
+              </label>
+            </div>
+            <!--Checkbox butons-->
           </div>
-          <div class="form-check form-check-inline">
-            <input formControlName="sexo" class="form-check-input" type="radio" id="sexo-feminino" value="feminino">
-            <label class="form-check-label" for="sexo-feminino">Feminino</label>
-          </div>
-        </div>
-        <button (click)="sendForm(userForm.value)" [disabled]="!userForm.valid">CONTINUAR</button>
+        
+        <button class="geru-submit" routerLink="/users" (click)="sendForm(userForm.value)" [disabled]="!userForm.valid">CONTINUAR <i class="fas fa-caret-right"></i>
+
+        </button>
       </form>
     </div>
   </div>
-  <div>
-    <div>Listagem</div>
-    <ul>
-      <li *ngFor="let user of users">Nome: {{user.name}} - RG: {{user.rg}} <a href="#" (click)="editarUser(user.id)">Editar</a> <a href="#" (click)="excluirUser(user.id)">Excluir</a></li>
-    </ul>
+  <div class="row">
+    <div class="container text-center">
+      <a routerLink="/users">Listagem</a>
+    </div>
   </div>
 </section>

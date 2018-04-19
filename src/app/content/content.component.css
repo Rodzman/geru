@@ -1,0 +1,61 @@
+.btn-gender{
+    border: 3px solid;
+    border-radius: none;
+    margin: 20px 5px;
+    font-weight: bold;
+}
+
+.btn-gender.active {
+    border-color: #00b7cd;
+    color: #00b7cd;
+}
+
+.btn-gender:hover {
+    border-color: #00b7cd;
+    color: #00b7cd;
+}
+
+.btn-label{
+    padding: 33px 0;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.geru-submit{
+    background: #eae8dd;
+    padding: 8px 30px;
+    border: 0;
+    font-weight: bold;
+}
+
+.geru-input{
+    border: 3px solid;
+    border-radius: 0;
+    margin: 20px 5px;
+    font-weight: bold;
+    background: none;
+}
+
+.geru-input:focus{
+    border-color: #00b7cd;
+    color: #00b7cd;
+}
+
+.geru-input:invalid{
+    border-color: red;
+    color: red;
+}
+
+.geru-label{
+    font-size: 0.7rem;
+    font-weight: bold;
+    float: left;
+}
+
+.geru-label:focus{
+    color: #00b7cd;
+}
+
+.form-title{
+    padding: 30px;
+}

@@ -31,4 +31,8 @@ export class GeruService {
     return this.http.get<User>(`${this.ENDPOINT}`)
   }
 
+  userById(id:number): Observable<User>{
+    return this.http.get<User>(`${this.ENDPOINT}/${id}`)
+  }
+
 }
