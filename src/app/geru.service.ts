@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable'
 import { User } from './geru.model';
 import 'rxjs/add/operator/map'
+import { NotificationService } from './notification/notification.service';
 
 
 @Injectable()
@@ -14,7 +15,7 @@ export class GeruService {
   private headers = new HttpHeaders  ({"Content-Type": "application/x-www-form-urlencoded"})
   params = new HttpParams()
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private notificationService: NotificationService) { }
 
   emissor(): Observable<any>{
     return this.http.get(`${this.EMISSORES_URL}`)

@@ -205,7 +205,7 @@ h3 {
 .header-info-text div p {
   color: #fffdf0;
   font-size: 1.4rem;
-  margin-bottom: 0.3rem; }
+  margin-bottom: 0.1rem; }
 
 .header-info-text span {
   color: #fffdf0; }
@@ -214,15 +214,27 @@ h3 {
   color: #17a2b8; }
 
 .footer {
-  background: #eae8dd;
-  color: #323132;
-  font-size: 0.8rem;
-  font-weight: bolder; }
+  background: #323132; }
 
 .footer a {
-  color: #323132; }
+  color: #eae8dd;
+  font-size: 0.7rem;
+  font-weight: bolder; }
 
 .footer a + a:before {
   content: " | ";
   margin: 0 20px;
   color: #17a2b8; }
+
+.notificationBar {
+  min-width: 250px;
+  margin: auto;
+  background-color: #17a2b8;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 35%;
+  bottom: 30px; }

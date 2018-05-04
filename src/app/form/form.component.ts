@@ -3,6 +3,7 @@ import { GeruService } from '../geru.service';
 import { Emissor, User } from '../geru.model';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, AbstractControl, NgModel, FormControlName } from '@angular/forms'
+import { NotificationService } from '../notification/notification.service';
 
 @Component({
   selector: 'app-form',
@@ -23,7 +24,8 @@ export class FormComponent implements OnInit {
 
   constructor(private geruService: GeruService, 
               private router: Router,
-              private formBuilder: FormBuilder) { }
+              private formBuilder: FormBuilder,
+              private notificationService: NotificationService) { }
 
   ngOnInit() {
     this.gerarEmissor()
@@ -56,7 +58,7 @@ export class FormComponent implements OnInit {
     this.formValidation = true
     this.geruService.addUser(user)
     .subscribe(res => {
-      // alert("Usuário com o id='"+ res + "' foi adicionado!")
+      this.notificationService.notify(`Você adicionou um cadastro com id ${res}`)
       this.router.navigate(['/users'])
       this.generateForm()
     })
