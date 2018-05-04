@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import {NgxMaskModule} from 'ngx-mask'
+
 
 import { GeruService } from './geru.service';
 import { ROUTES } from './app.routes';
@@ -33,7 +35,8 @@ import { FormComponent } from './form/form.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    NgxMaskModule.forRoot()
   ],
   providers: [GeruService],
   bootstrap: [AppComponent]

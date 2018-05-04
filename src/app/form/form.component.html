@@ -1,43 +1,45 @@
 <section>
-  <div class="row">
-    <div class="container text-center geru-content">
-      <h3 class="form-title">DADOS PESSOAIS</h3>
-      <form [formGroup]="userForm" novalidate>
-        <div class="form-row">
-          <div class="form-group col-md-4">
-            <input type="text" formControlName="rg" class="form-control geru-input" id="geru-rg" aria-describedby="rgHelp">
-            <label for="geru-rg" class="geru-label">NÚMERO DO RG</label>
-          </div>
-          <div class="form-group col-md-4">
-            <input type="text" formControlName="data_emissao" class="form-control geru-input" id="geru-emissao" aria-describedby="emissaoHelp">
-            <label for="geru-emissao" class="geru-label">DATA DE EMISSÃO</label>
-            <!-- <div *ngIf="hasError()">Example invalid feedback text</div> -->
-          </div>
-          <div class="form-group col-md-4">
-            <select formControlName="orgao_emissor" class="form-control geru-input" style="height: 42px;">
-              <option disabled selected></option>
-              <option *ngFor="let orgao of emissor">{{orgao.label | uppercase}}</option>
-            </select>
-            <label for="geru-expedidor" class="geru-label">ORGÃO EXPEDIDOR</label>
-          </div>
+  <div class="container text-center geru-content">
+    <h3 class="form-title">DADOS PESSOAIS</h3>
+    <form [formGroup]="userForm" novalidate>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <input type="text" formControlName="rg" class="form-control geru-input" id="geru-rg" aria-describedby="rgHelp">
+          <label for="geru-rg" class="geru-label">NÚMERO DO RG</label>
         </div>
-        <div class="form-row">
-          <!--Checkbox butons-->
-          <div class="form-group btn-group btn-group-toggle" style="margin:auto;">
-            <div class="btn-label">SEXO</div>
-            <label class="btn btn-gender" [class.active]="activeGender('masculino')" >
-              <input formControlName="sexo" class="form-control" type="radio" id="sexo-masculino" value="masculino" (click)="setGender('masculino')"> Masculino
-            </label>
-            <label class="btn btn-gender" [class.active]="activeGender('feminino')">
-              <input formControlName="sexo" class="form-control" type="radio" id="sexo-feminino" value="feminino" (click)="setGender('feminino')"> Feminino
-            </label>
-          </div>
-          <!--Checkbox butons-->
+        <div class="form-group col-md-4">
+          <input type="text" formControlName="data_emissao" class="form-control geru-input" id="geru-emissao" [dropSpecialCharacters]="false" placeholder="dd/mm/aaaa" pattern="(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)" mask="00/00/0000"  aria-describedby="emissaoHelp">
+          <label for="geru-emissao" class="geru-label">DATA DE EMISSÃO</label>
+          <!-- <div *ngIf="hasError()">Example invalid feedback text</div> -->
         </div>
-        <button class="geru-submit" routerLink="/users" (click)="sendForm(userForm.value)" [class.valid]="userForm.valid" [disabled]="!userForm.valid">
-          CONTINUAR <i class="fas fa-caret-right"></i>
-        </button>
-      </form>
-    </div>
+        <div class="form-group col-md-4">
+          <select formControlName="orgao_emissor" class="form-control geru-input" style="height: 42px;">
+            <option disabled selected></option>
+            <option *ngFor="let orgao of emissor">{{orgao.label | uppercase}}</option>
+          </select>
+          <label for="geru-expedidor" class="geru-label">ORGÃO EXPEDIDOR</label>
+        </div>
+      </div>
+      <div class="form-row">
+        <!--Checkbox butons-->
+        <div class="form-group btn-group btn-group-toggle" style="margin:auto;">
+          <div class="btn-label">SEXO</div>
+          <label class="btn btn-gender" [class.active]="activeGender('masculino')" >
+            <input formControlName="sexo" class="form-control" type="radio" id="sexo-masculino" value="masculino" (click)="setGender('masculino')"> Masculino
+          </label>
+          <label class="btn btn-gender" [class.active]="activeGender('feminino')">
+            <input formControlName="sexo" class="form-control" type="radio" id="sexo-feminino" value="feminino" (click)="setGender('feminino')"> Feminino
+          </label>
+        </div>
+        <!--Checkbox butons-->
+      </div>
+      <div class="form-row">
+        <div (mouseover)="validation()" style="margin:auto;">
+          <button class="btn geru-submit" routerLink="/users" (click)="sendForm(userForm.value)" [class.valid]="formValidation === true" [disabled]="formValidation === false">
+            CONTINUAR <i class="fas fa-caret-right"></i>
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
 </section>

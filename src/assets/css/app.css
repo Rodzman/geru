@@ -22,22 +22,23 @@
 body {
   background: #fffdf0;
   font-family: Gotham;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  font-size: 1rem; }
 
 .header-info {
   background: #323132;
-  height: 99px; }
+  min-height: 99px; }
 
 .header-menu {
   background: #232223;
-  height: 99px;
+  min-height: 99px;
   font-family: Gotham;
   font-size: 0.7rem;
   color: #fffdf0; }
 
 .geru-breadcrumb {
   background: #eae8dd;
-  height: 49px;
+  min-height: 49px;
   text-align: center;
   font-size: 0.7rem;
   font-weight: bold;
@@ -133,7 +134,8 @@ h3 {
   padding: 8px 30px;
   border: 0;
   font-weight: bold;
-  margin-top: 30px; }
+  margin-top: 30px;
+  cursor: pointer; }
 
 .geru-submit.valid {
   background: green;
@@ -183,3 +185,29 @@ h3 {
 .editable:hover {
   text-decoration: underline;
   cursor: pointer; }
+
+@media (min-width: 900px) {
+  #navbarNav li + li:before {
+    content: " o ";
+    font-size: 0.4rem;
+    color: #17a2b8;
+    font-weight: bold;
+    float: left;
+    line-height: 2rem; } }
+
+.header-info-text {
+  color: #17a2b8;
+  font-size: 0.55rem;
+  line-height: 1rem;
+  font-weight: bold; }
+
+.header-info-text div p {
+  color: #fffdf0;
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem; }
+
+.header-info-text span {
+  color: #fffdf0; }
+
+.list-text span {
+  color: #17a2b8; }
