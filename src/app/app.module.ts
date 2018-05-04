@@ -17,6 +17,7 @@ import { ContentComponent } from './content/content.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UsersDetailComponent } from './users-list/users-detail/users-detail.component';
 import { FormComponent } from './form/form.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { FormComponent } from './form/form.component';
     ContentComponent,
     UsersListComponent,
     UsersDetailComponent,
-    FormComponent
+    FormComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
