@@ -14,6 +14,7 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { ContentComponent } from './content/content.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UsersDetailComponent } from './users-list/users-detail/users-detail.component';
+import { FormComponent } from './form/form.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { UsersDetailComponent } from './users-list/users-detail/users-detail.com
     BreadcrumbComponent,
     ContentComponent,
     UsersListComponent,
-    UsersDetailComponent
+    UsersDetailComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,

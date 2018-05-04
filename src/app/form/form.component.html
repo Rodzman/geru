@@ -1,0 +1,43 @@
+<section>
+  <div class="row">
+    <div class="container text-center geru-content">
+      <h3 class="form-title">DADOS PESSOAIS</h3>
+      <form [formGroup]="userForm" novalidate>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <input type="text" formControlName="rg" class="form-control geru-input" id="geru-rg" aria-describedby="rgHelp">
+            <label for="geru-rg" class="geru-label">NÚMERO DO RG</label>
+          </div>
+          <div class="form-group col-md-4">
+            <input type="text" formControlName="data_emissao" class="form-control geru-input" id="geru-emissao" aria-describedby="emissaoHelp">
+            <label for="geru-emissao" class="geru-label">DATA DE EMISSÃO</label>
+            <!-- <div *ngIf="hasError()">Example invalid feedback text</div> -->
+          </div>
+          <div class="form-group col-md-4">
+            <select formControlName="orgao_emissor" class="form-control geru-input" style="height: 42px;">
+              <option disabled selected></option>
+              <option *ngFor="let orgao of emissor">{{orgao.label | uppercase}}</option>
+            </select>
+            <label for="geru-expedidor" class="geru-label">ORGÃO EXPEDIDOR</label>
+          </div>
+        </div>
+        <div class="form-row">
+          <!--Checkbox butons-->
+          <div class="form-group btn-group btn-group-toggle" style="margin:auto;">
+            <div class="btn-label">SEXO</div>
+            <label class="btn btn-gender" [class.active]="activeGender('masculino')" >
+              <input formControlName="sexo" class="form-control" type="radio" id="sexo-masculino" value="masculino" (click)="setGender('masculino')"> Masculino
+            </label>
+            <label class="btn btn-gender" [class.active]="activeGender('feminino')">
+              <input formControlName="sexo" class="form-control" type="radio" id="sexo-feminino" value="feminino" (click)="setGender('feminino')"> Feminino
+            </label>
+          </div>
+          <!--Checkbox butons-->
+        </div>
+        <button class="geru-submit" routerLink="/users" (click)="sendForm(userForm.value)" [class.valid]="userForm.valid" [disabled]="!userForm.valid">
+          CONTINUAR <i class="fas fa-caret-right"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

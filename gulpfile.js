@@ -3,7 +3,7 @@ var gulp = require('gulp'),
   watch = require('gulp-watch');
 
 // task default
-gulp.task('default', ['bootstrap-scss', 'app-sass', 'watch']);
+gulp.task('default', ['bootstrap-scss', 'fontawesome', 'app-sass', 'watch']);
 
 // task to bootstrap scss
 gulp.task('bootstrap-scss', function () {
@@ -15,6 +15,13 @@ gulp.task('bootstrap-scss', function () {
 // task to app sass
 gulp.task('app-sass', function () {
   return gulp.src('src/sass/**/*.sass')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('src/assets/css'));
+});
+
+// task to font-awesome sass
+gulp.task('fontawesome', function () {
+  return gulp.src('node_modules/@fortawesome/fontawesome-free-webfonts/scss/**/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('src/assets/css'));
 });

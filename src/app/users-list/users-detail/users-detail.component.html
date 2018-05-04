@@ -1,7 +1,58 @@
 <section>
-  <div>
-    {{user.name}} - SEXO: {{user.sexo}} <br/>
-    RG: {{user.rg}} - DATA EMISSÃO: {{user.data_emissao}} - ORGÃO EMISSOR: {{user.orgao_emissor}}
+  <div class="container">
+    <h4 class="headline">Detalhes do cadastro</h4>
+    <div class="row">
+      <div class="card w-100">
+        <div class="card-body">
+          <div class="card-text">
+            <!-- NAME FIELDS -->
+            <div *ngIf="fieldEditMode !== 'name'" (click)="editMode('name')" class="editable"><b>NOME:</b> {{user?.name}}<br/></div>
+            <div *ngIf="fieldEditMode === 'name'">
+              <b>NOME:</b> <input type="text" value="{{user?.name}}" name="fieldName" #iptName />
+              <a (click)="saveField(user?.id,iptName.value)" class="btn btn-sm p-0" title="Salvar"><i class="fa fa-check text-success"></i></a>
+              <a (click)="editMode('')" class="btn btn-sm p-0"><i class="fa fa-times text-danger" title="Cancelar"></i></a><br/>
+            </div>
+            <!-- GENDER FIELDS -->
+            <div *ngIf="fieldEditMode !== 'gender'" (click)="editMode('gender')" class="editable"><b>SEXO:</b> {{user?.sexo}}<br/></div>
+            <div *ngIf="fieldEditMode === 'gender'">
+              <b>SEXO:</b> 
+              <select #iptGender>
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+              </select>
+              <a (click)="saveField(user?.id,iptGender.value)" class="btn btn-sm p-0" title="Salvar"><i class="fa fa-check text-success"></i></a>
+              <a (click)="editMode('')" class="btn btn-sm p-0"><i class="fa fa-times text-danger" title="Cancelar"></i></a><br/>
+            </div>
+            <!-- RG FIELDS -->
+            <div *ngIf="fieldEditMode !== 'rg'" (click)="editMode('rg')" class="editable"><b>RG:</b> {{user?.rg}}<br/></div>
+            <div *ngIf="fieldEditMode === 'rg'">
+              <b>RG:</b> <input type="text" value="{{user?.rg}}" name="fieldName" #iptRg />
+              <a (click)="saveField(user?.id,iptRg.value)" class="btn btn-sm p-0" title="Salvar"><i class="fa fa-check text-success"></i></a>
+              <a (click)="editMode('')" class="btn btn-sm p-0"><i class="fa fa-times text-danger" title="Cancelar"></i></a><br/>
+            </div>
+            <!-- EMISSAO FIELDS -->
+            <div *ngIf="fieldEditMode !== 'data_emissao'" (click)="editMode('data_emissao')" class="editable"><b>DATA EMISSÃO:</b> {{user?.data_emissao}}<br/></div>
+            <div *ngIf="fieldEditMode === 'data_emissao'">
+              <b>DATA EMISSÃO:</b> <input type="text" value="{{user?.data_emissao}}" name="fieldName" #iptData />
+              <a (click)="saveField(user?.id,iptData.value)" class="btn btn-sm p-0" title="Salvar"><i class="fa fa-check text-success"></i></a>
+              <a (click)="editMode('')" class="btn btn-sm p-0"><i class="fa fa-times text-danger" title="Cancelar"></i></a><br/>
+            </div>
+            <!-- ORGAO FIELDS -->
+            <div *ngIf="fieldEditMode !== 'orgao_emissor'" (click)="editMode('orgao_emissor')" class="editable"><b>ORGÁO EMISSOR:</b> {{user?.orgao_emissor}}<br/></div>
+            <div *ngIf="fieldEditMode === 'orgao_emissor'">
+              <b>ORGÃO EMISSOR:</b> 
+              <select #iptOrgao>
+                <option *ngFor="let orgao of emissor">{{orgao.label | uppercase}}</option>
+              </select>
+              <a (click)="saveField(user?.id,iptOrgao.value)" class="btn btn-sm p-0" title="Salvar"><i class="fa fa-check text-success"></i></a>
+              <a (click)="editMode('')" class="btn btn-sm p-0"><i class="fa fa-times text-danger" title="Cancelar"></i></a><br/>
+            </div>
+          </div>
+          <!-- <a href="#" class="btn btn-primary">Button</a> -->
+        </div>
+      </div>
+      <small>*Para editar as informações, clique no campo que deseja alterar.</small>
+    </div>
+    <h4 class="headline"><a routerLink="/users"><span class="badge badge-info">Voltar</span></a></h4>
   </div>
-  <a routerLink="/users">Voltar</a>
 </section>

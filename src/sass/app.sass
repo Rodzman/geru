@@ -1,7 +1,3 @@
-@import "/assets/fontawesome/scss/fontawesome.scss";
-@import "/assets/fontawesome/scss/fa-solid.scss";
-@import "/assets/fontawesome/scss/fa-brands.scss";
-
 @font-face
     font-family: Gotham
     src: local('Gotham Bold')
@@ -54,10 +50,13 @@ body
 .geru-breadcrumb-text
     color: #b2b1a9
     float: left
-
     
 .geru-breadcrumb-text-selected
     color: #323132
+    float: left
+
+.geru-breadcrumb-text-used
+    color: #b2b1a9
     float: left
 
 .geru-breadcrumb-number
@@ -79,6 +78,17 @@ body
     margin: 0 5px 0 30px
     float: left
 
+.geru-breadcrumb-number-used
+    color: #eae8dd
+    background: #b2b1a9
+    border: 2px solid #b2b1a9
+    height: 20px
+    width: 20px
+    border-radius: 20px
+    margin: 0 5px 0 30px
+    float: left
+    line-height: 17px
+
 .form-title 
     font-family: Gotham
     font-weight: bolder
@@ -97,5 +107,80 @@ h3
     border: 3px solid
     border-radius: none
 
-.teste
+.btn-gender
+    border: 3px solid
+    border-radius: 0
+    font-weight: bold
+    margin: 0 7px;
+    height: 42px;
+
+.btn-gender.active 
+    // border-color: #00b7cd
+    border-color: #323132
+    background: #323132
+    color: #eae8dd
+
+.btn-gender:hover 
+    border-color: #00b7cd
+    color: #00b7cd
+
+.btn-label
+    padding: 13px 0
+    font-size: 0.7rem
+    font-weight: bold
+
+.geru-submit
+    background: #eae8dd
+    padding: 8px 30px
+    border: 0
+    font-weight: bold
+    margin-top: 30px
+
+.geru-submit.valid
+    background: green
+    color: white
+
+.geru-input
+    border: 3px solid 
+    border-color: #323132
+    border-radius: 0
+    margin: 20px 5px
+    font-weight: bold
+    background: none
+
+.geru-input:focus, .geru-input:focus + .geru-label
+    border-color: #00b7cd
+    color: #00b7cd
+    background: none
+  
+.geru-input:invalid
+    border-color: red
     color: red
+
+.geru-label
+    font-size: 0.7rem
+    font-weight: bold
+    float: left
+    margin-top: -80px;
+    margin-left: 5px;
+
+.form-title
+    padding: 30px
+
+.list-text
+    line-height: 1rem
+    font-size: 0.9rem
+    margin: 0
+    font-weight: bolder
+
+.headline
+    line-height: 6rem
+    font-weight: bolder
+
+.list-group-item
+    background-color: #fffdf0
+    border-color: rgb(50, 49, 50)
+
+.editable:hover
+    text-decoration: underline
+    cursor: pointer
